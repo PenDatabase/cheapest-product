@@ -101,3 +101,6 @@ media/
 *.swp
 *.swo
 *~
+
+# ========Bruno Files=======================
+cheapest-product-bruno-files/

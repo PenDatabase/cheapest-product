@@ -34,6 +34,10 @@ class Item(Base):
 
     price: Mapped[Decimal] = mapped_column(Numeric(10, 2))
 
+    @property
+    def shop_name(self) -> str:
+        return self.shop.display_name
+
 
 class Feedback(Base):
     __tablename__ = "feedback"
