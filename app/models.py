@@ -37,6 +37,10 @@ class Item(Base):
     @property
     def shop_name(self) -> str:
         return self.shop.display_name
+    
+    @property
+    def shop_address(self) -> str:
+        return self.shop.address
 
 
 class Feedback(Base):

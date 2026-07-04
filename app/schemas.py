@@ -7,6 +7,7 @@ class ItemListResponse(BaseModel):
     name: str
     price: Decimal
     shop_name: str
+    shop_address: str
     model_config = ConfigDict(from_attributes=True)
 
 class ShopResponse(BaseModel):
