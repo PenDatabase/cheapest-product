@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, ConfigDict, AliasPath
+from pydantic import BaseModel, ConfigDict
 from uuid import UUID
 from decimal import Decimal
 
@@ -15,9 +15,11 @@ class ShopResponse(BaseModel):
     display_name: str
     address: str
     phone_number: str
+    model_config = ConfigDict(from_attributes=True)
 
 class ItemResponse(BaseModel):
     id: UUID
     name: str
     price: Decimal
     shop: ShopResponse
+    model_config = ConfigDict(from_attributes=True)
