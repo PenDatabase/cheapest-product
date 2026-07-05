@@ -3,6 +3,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 from typing import Optional
 from uuid import UUID
+from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 from .admin import setup_admin
 from .database import Base, engine
 from .dependencies import get_db
@@ -12,6 +13,7 @@ from . import schemas
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+app.add_middleware(ProxyHeadersMiddleware, trusted_hosts="*")
 
 setup_admin(app, engine)
 
